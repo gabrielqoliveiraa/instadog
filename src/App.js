@@ -4,7 +4,7 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-      App
+      App, teste de merge
     </div>
   );
 }
