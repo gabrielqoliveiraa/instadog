@@ -1,5 +1,6 @@
 import React from 'react'
-import {TOKEN_POST, USER_GET} from './api'
+import {TOKEN_POST, USER_GET, TOKEN_VALIDATE_POST} from './api'
+import {useNavigate} from 'react-router-dom'
 
 export const UserContext = React.createContext()
 
@@ -9,6 +10,42 @@ export const UserStorage = ({children}) => {
     const [login, setLogin] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState(null);
+    const navigate = useNavigate()
+
+
+    const userLogout = React.useCallback(async function() {
+        setData(null)
+        setError(null)
+        setLoading(false)
+        setLogin(false)
+        window.localStorage.removeItem('token')
+        navigate('/login')
+
+    }, [navigate])
+        
+
+
+    React.useEffect(() => {
+        async function autoLogin(){
+            const token = window.localStorage.getItem('token');
+            if (token) {
+                try {
+                    setError(null)
+                    setLoading(true)
+                    const {url, options} = TOKEN_VALIDATE_POST;
+                    const response = await fetch(url, options)
+                    if (!response.ok) throw new Error('Token Inválido')
+                    await getUser(token)
+                } catch (error) {
+                    userLogout();
+                } finally {
+                    setLoading(false)
+
+                }
+            }
+        }
+        autoLogin()
+    },[userLogout])
 
 
 
@@ -21,12 +58,30 @@ export const UserStorage = ({children}) => {
         console.log(json);
     }
 
+
+
+
     async function userLogin(username, password){
-        const {url, options} = TOKEN_POST({username, password});
-        const tokenRes = await fetch(url, options);
-        const {token} = await tokenRes.json();
-        window.localStorage.setItem('token', token)
-        getUser(token)
+
+        try{
+            setError(null)
+            setLoading(true)
+            const {url, options} = TOKEN_POST({username, password});
+            const tokenRes = await fetch(url, options);
+            if (!tokenRes.ok) throw new Error(`Error Usuário Inválido`)
+            const {token} = await tokenRes.json();
+            window.localStorage.setItem('token', token)
+            await getUser(token)
+            navigate('/conta')
+
+        } catch(error) {
+            setError(error.message)
+            setLogin(false)
+        } finally {
+            setLoading(false)
+
+        }
+
     }
 
 
@@ -41,7 +96,7 @@ export const UserStorage = ({children}) => {
 
 
     return (
-        <UserContext.Provider value={{userLogin, data}}>
+        <UserContext.Provider value={{userLogin, data, userLogout, error, loading, login}}>
             {children}
         </UserContext.Provider>
     )
