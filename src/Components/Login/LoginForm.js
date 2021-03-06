@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../Forms/Button'
+import Input from '../Forms/Input'
 
 const LoginForm = () => {
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const [token, setToken] = React.useState('')
 
 
     function handleSubmit(event) {
@@ -25,7 +26,6 @@ const LoginForm = () => {
       })
       .then((json) => {
         console.log(json);
-        setToken(json.token);
         return json;
       });
     }
@@ -34,10 +34,11 @@ const LoginForm = () => {
         <section>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" onChange={({target}) => setUsername(target.value)} value={username}/>
-                <input type="password" onChange={({target}) => setPassword(target.value)} value={password}/>
+                <Input label='Usuário' type='text' name='username'/>
+                <Input label='Senha' type='password' name='password'/>
 
-                <button>Enviar</button>
+
+                <Button>Entrar</Button>
             </form>
 
             <Link to='/login/criar'> Cadastro </Link>
