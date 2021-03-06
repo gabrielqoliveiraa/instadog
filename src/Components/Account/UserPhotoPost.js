@@ -2,9 +2,9 @@ import React from 'react'
 
 const UserPhotoPost = () => {
     return (
-        <div>
+        <section>
             POSTAR
-        </div>
+        </section>
     )
 }
 
