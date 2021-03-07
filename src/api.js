@@ -99,3 +99,14 @@ export function PHOTO_ONLY_GET(id) {
     }
             
 }
+
+
+
+
+export function PHOTO_ONLY(id) {
+    return {
+        url: `${API_URL}/api/photo/${id}`,
+
+    }
+            
+}
