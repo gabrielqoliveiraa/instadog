@@ -6,7 +6,7 @@ import Error from '../Helper/Error'
 import Loading from '../Helper/Loading'
 import styles from '../../styles/Components/FeedPhotos.module.css'
 
-const FeedPhotos = ({setModalPhoto}) => {
+const FeedPhotos = ({setModalPhoto, user, page, setInfinite}) => {
 
 
     const {data, loading, error, request} = useFetch()
@@ -14,13 +14,15 @@ const FeedPhotos = ({setModalPhoto}) => {
     React.useEffect(()=>{
 
         async function fetchPhotos(){
-            const {url, options} = PHOTO_GET({page: 1, total: 6, user: 0})
-            const {json} =  await request(url,options)
-            console.log(json)
+            const total = 6;
+            const {url, options} = PHOTO_GET({page, total, user})
+            const {json, response} =  await request(url,options)
+            console.log('request')
+            if(response && response.ok && json.length < total) setInfinite(false)
         }
 
         fetchPhotos()
-    },[request])
+    },[request, user, page, setInfinite])
 
 
     if(error) return <Error eror={error}/>
