@@ -41,12 +41,17 @@ Password: dog
 - <a href='https://instadog-coral.vercel.app/'>Link do Projeto</a>
 
 - ⚛️ **React Js** 
+- 💅 **CSS Modules**
 
 
 ## Others
 
- - 💅 **CSS Modules** 
-
+ - **Local Storage**
+ - **Consumo dos EndPoints de uma API**
+ - **Utilização de Biliotecas Externas**
+ - **React Router**
+ 
+     
 
 
  [Ler mais]: https://github.com/gabrielqoliveiraa
