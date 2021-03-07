@@ -1,47 +1,62 @@
+
 <h1 align="center">
+<br>
+  <img src="https://svgshare.com/i/UnU.svg" alt="InstaDog" width="120">
+
 
 <br>
-Harry Potter Quiz
+<br>
+InstaDog
 </h1>
 
-<p align="center">Uma aplicação web de um Quiz sobre o universo Harry Potter, criado durante a Imersão React da Alura</p>
+
+<p align="center">Uma rede social feita para cachorros</p>
+
+
+
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
   </a>
-
-  <a href="https://app.codacy.com/gh/gabrielqoliveiraa/hp-quiz/dashboard">
-    <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/4997e01df18f4441aae384fc60aa4daa.svg">
-  </a>
 </p>
 
-<div>
-  <img src="https://i.ibb.co/847sBwf/PRINT.png" alt="demo-web" height="425">
+<div align="center">
+  <img src="https://i.ibb.co/zHzMSQK/captured.gif" alt="demo-web" height="425">
+
+  <img src="https://i.ibb.co/LS9kybX/captured-1.gif" alt="demo-web" height="425">
+
+
+Usuário Padrão
+<br>
+Login: dog
+<br>
+Password: dog
+
 </div>
 
 <hr />
 
 ## Features
+- <a href='https://instadog-coral.vercel.app/'>Link do Projeto</a>
 
-- ⚛️ **React Js** — É uma biblioteca em JavaScript para criação de interfaces
-- 💹 **Next Js** — Um framework de React para produção
+- ⚛️ **React Js** 
+
 
 ## Others
 
- - 💅 **Styled-Components** - Visuais para componentes 
- - 💻 **Conceitos de backend** - Manipulação de arquivos de JSON e requests de EndPoint
+ - 💅 **CSS Modules** 
 
-## Conceitos de BackEnd 
- ### Esse conceito de BackEnd e implementação com API'S está sendo estudado e refinado em outro projeto. [Ler mais]
+
 
  [Ler mais]: https://github.com/gabrielqoliveiraa
 
 ## Getting started
 
-📩  - Utilizando o Next Js, é possível dar deploy diretamente por meio do site da Vercel. A qual é responsável pelo framework. <br>
-📫	- Acesse https://hpquiz.gabrielqoliveiraa.vercel.app/  <br>
-📤  - Teste a aplicação
+Foi utilizado a Vercel para dar deploy de forma rápida e prática na aplicação.
+
+1. Vá até a pasta do projeto: `cd project`
+2. Rode  `yarn start` para instalação das dependências usadas
 
 ## License
 
