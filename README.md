@@ -22,9 +22,9 @@ InstaDog
 </p>
 
 <div align="center">
-  <img src="https://i.ibb.co/zHzMSQK/captured.gif" alt="demo-web" height="425">
+  <img src="./src/Assets/captured.gif" alt="demo-web" height="425">
 
-  <img src="https://i.ibb.co/LS9kybX/captured-1.gif" alt="demo-web" height="425">
+  <img src="./src/Assets/captured%20(1).gif?raw=true" alt="demo-web" height="425">
 
 
 Usuário Padrão
